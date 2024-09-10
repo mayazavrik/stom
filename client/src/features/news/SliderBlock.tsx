@@ -42,13 +42,13 @@ export default function SliderBlock(): JSX.Element {
     ],
   };
 
-  const nextSlide = (): void => {
-    sliderRef.current ? sliderRef.current.slickNext() : sliderRef;
-  };
+  // const nextSlide = (): void => {
+  //   sliderRef.current ? sliderRef.current.slickNext() : sliderRef;
+  // };
 
-  const previousSlide = (): void => {
-    sliderRef.current ? sliderRef.current.slickPrev() : sliderRef;
-  };
+  // const previousSlide = (): void => {
+  //   sliderRef.current ? sliderRef.current.slickPrev() : sliderRef;
+  // };
   if (!services || services.length === 0) {
     return <div>Загрузка...</div>;
   }

@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import image from "./style/XXXL (1).webp";
 import "./style/main.css";
 
-import { BiSolidToTop } from "react-icons/bi";
-import Footer from "../footer/Footer";
+// import { BiSolidToTop } from "react-icons/bi";
+// import Footer from "../footer/Footer";
 import { NavLink, useNavigate } from "react-router-dom";
 import SliderBlock from "../news/SliderBlock";
 
 function MainPage(): JSX.Element {
-	const [classStopScroll, setClassStopScrolling] = useState<"" | "stop-scrolling">(""); // Initial top position
+	const [, setClassStopScrolling] = useState<"" | "stop-scrolling">(""); // Изначальное состояние
 	const scrollToFooter = () => {
 		const footerElement = document.getElementById("footer");
 		if (footerElement) {
@@ -21,20 +21,19 @@ const handleServices = () => {
     navigate('/services');
 };
 	const stopPoint = 450;
-	useEffect(() => {
-		const handleScroll = (): void => {
-			const { scrollY } = window;
-			if (scrollY > stopPoint) {
-				setClassStopScrolling("stop-scrolling");
-			} else {
-				setClassStopScrolling("");
-			}
-		};
-		window.addEventListener("scroll", handleScroll);
-		return () => {
-			window.removeEventListener("scroll", handleScroll);
-		};
-	}, []);
+  useEffect(() => {
+    const handleScroll = (): void => {
+      const { scrollY } = window;
+      if (scrollY > stopPoint) {
+        setClassStopScrolling("stop-scrolling");
+      } else {
+        setClassStopScrolling("");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 	return (
 		<div className="wrapper">
 			<div className="forname">
@@ -46,7 +45,8 @@ const handleServices = () => {
 				</h1>
 				<div className="navbtns">
 					<button onClick={handleServices} id="b1" type="button" className="btn btn-outline-light ">
-						<NavLink className="navlink2" >
+						<NavLink className="navlink2" to="/services"
+						>
 							Услуги
 						</NavLink>
 					</button>

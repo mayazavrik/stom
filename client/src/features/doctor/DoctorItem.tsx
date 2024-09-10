@@ -1,18 +1,18 @@
-import React, { memo, useState } from "react";
+import React, {  useState } from "react";
 
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import "./style/style.css";
 import ChangeDoctorForm from "./ChangeDoctorForm";
-import type { RootState } from "../../redux/store";
-import { deleteDoctor, deleteOneDoctor} from "./doctorSlice";
+import type { RootState, AppDispatch } from "../../redux/store";
+import {  deleteOneDoctor} from "./doctorSlice";
 import { DoctorCard } from "./types/types";
 
 export default function DoctorItem({ doctor }: { doctor: DoctorCard }): JSX.Element {
 	const [modalActive, setModalActive] = useState(false);
 	const user = useSelector((store: RootState) => store.auth.user);
-	const dispatch = useDispatch();
+	const dispatch = useDispatch<AppDispatch>(); 
 	const onHandleRemove = (): void => {
 		// dispatch(deleteDoctor(doctor.id));
 		dispatch(deleteOneDoctor(doctor.id));

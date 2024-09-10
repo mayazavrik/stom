@@ -1,5 +1,5 @@
 import React from 'react';
-import videoerror from '../../images/mark.mp4'
+// import videoerror from '../../images/mark.mp4'
 const ErrorPage = (): JSX.Element => {
   return (
     <div className='error-window'>

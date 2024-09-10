@@ -1,13 +1,13 @@
 import React from 'react';
 import './style/style.css';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { BiSolidToTop } from 'react-icons/bi';
 import { FaWhatsappSquare } from 'react-icons/fa';
 import { FaTelegram } from 'react-icons/fa';
-import { IoLogoYoutube } from 'react-icons/io';
+
 import { MdEmail } from 'react-icons/md';
 import { FaPhone } from 'react-icons/fa';
-import DentistryMap, { Map } from '../map/DentistryMap';
+import DentistryMap from '../map/DentistryMap';
 
 function Footer(): JSX.Element {
   const scrollToTop = () => {

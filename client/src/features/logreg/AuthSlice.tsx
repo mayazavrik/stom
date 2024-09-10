@@ -12,6 +12,7 @@ import type { AuthState,  User } from './type';
 const initialState: AuthState = {
   user: undefined,
   error: null,
+  service: undefined,
 };
 
 export const checkUser = createAsyncThunk('auth/check', () => fetchCheckUser());

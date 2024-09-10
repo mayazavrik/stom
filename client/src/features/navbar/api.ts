@@ -1,4 +1,4 @@
-import type { User } from '../LogReg/type';
+import type { User } from '../logreg/type';
 
 const fetchLogout = async (): Promise<User> => {
   const res = await fetch('/api/authLog/logout');

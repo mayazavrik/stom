@@ -1,8 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import type {  Sale, SaleId, ServiceCard, ServiceId, ServicesState } from './types/type';
+import type {     ServiceId,  ServicesState } from './types/type';
 import * as api from './api/api';
 import { fetchDeleteOneService, fetchUpdateStatus } from '../personalArea/api';
-import type { Service } from '../LogReg/type';
+import { Service } from '../logreg/type';
+// import type { Service } from '../LogReg/type';
 
 
 const initialState: ServicesState = {
@@ -26,25 +27,25 @@ export const loadServices = createAsyncThunk('services/load', () => api.fetchSer
 // export const updateSale = createAsyncThunk('/sales/upd', (sale: Sale) =>
 //   api.fetchUpdSale(sale),
 // );
-export const addService = createAsyncThunk('services/add', (service: ServiceCard) =>
+export const addService = createAsyncThunk('services/add', (service: Service) =>
   api.fetchAddService(service),
 );
-export const upStatusService = createAsyncThunk('update/status', (service: ServiceCard) =>
+export const upStatusService = createAsyncThunk('update/status', (service: Service) =>
   fetchUpdateStatus(service),
 );
-export const deleteOneService = createAsyncThunk('services/delete', (id: number) =>
+export const deleteOneService = createAsyncThunk<ServiceId, number>('services/delete', (id: number) =>
   fetchDeleteOneService(id),
 );
 
-export const changeService = createAsyncThunk('services/change', (service: ServiceCard) =>
+export const changeService = createAsyncThunk('services/change', (service: Service) =>
   api.fetchServiceChange(service),
 );
-export const addComments = createAsyncThunk('comments/add', (comment: CommentData) =>
-  api.fetchAddComments(comment),
-);
-export const deleteComment = createAsyncThunk('comments/delete', (id: number) =>
-  api.fetchDeleteComments(id),
-);
+// export const addComments = createAsyncThunk('comments/add', (comment: CommentData) =>
+//   api.fetchAddComments(comment),
+// );
+// export const deleteComment = createAsyncThunk('comments/delete', (id: number) =>
+//   api.fetchDeleteComments(id),
+// );
 
 const servicesSlice = createSlice({
   name: 'services',
@@ -75,58 +76,58 @@ const servicesSlice = createSlice({
         );
       })
   
-      .addCase(upStatusService.fulfilled, (state, action) => {
-        if (action.payload.message === 'success') {
-          state.services = state.services.map((el) =>
-            el.id === action.payload.service.id ? (el = action.payload.service) : el,
-          );
-        }
-      })
-      .addCase(upStatusService.rejected, (state, action) => {
-        state.error = action.error.message ? action.error.message : null;
-      })
+      // .addCase(upStatusService.fulfilled, (state, action) => {
+      //   if (action.payload.message === 'success') {
+      //     state.services = state.services.map((el) =>
+      //       el.id === action.payload.service.id ? (el = action.payload.service ) : el,
+      //     );
+      //   }
+      // })
+      // .addCase(upStatusService.rejected, (state, action) => {
+      //   state.error = action.error.message ? action.error.message : null;
+      // })
       .addCase(deleteOneService.fulfilled, (state, action) => {
         state.services = state.services.filter((service) => service.id !== action.payload);
       })
-      .addCase(addComments.fulfilled, (state, action) => {
-        if (!action.payload.rate) {
-          state.services.forEach((service) =>
-            service.id === action.payload.comment.service_id
-              ? (service.Comments = [...service.Comments, action.payload.comment])
-              : service,
-          );
-        } else {
-          state.services.forEach((service) =>
-            service.id === action.payload.comment.service_id
-              ? (service.Comments = [...service.Comments, action.payload.comment])
-              : service,
-          );
-          state.services.forEach((service) =>
-            service.id === action.payload.comment.service_id
-              ? (service.Rates = [...service.Rates, action.payload.rate])
-              : service,
-          );
-        }
-      })
-      .addCase(addComments.rejected, (state, action) => {
-        state.error = action.error.message ? action.error.message : null;
-      })
-      .addCase(addComments.pending, (state) => {
-        state.loading = true;
-      })
-      .addCase(deleteComment.fulfilled, (state, action) => {
-        state.services = state.services.map((service) =>
-          service.id === action.payload.service_id
-            ? {
-                ...service,
-                Comments: service.Comments.filter(
-                  (comment) => comment.id !== action.payload.comment_id,
-                ),
-              }
-            : service,
-        );
+      // .addCase(addComments.fulfilled, (state, action) => {
+      //   if (!action.payload.rate) {
+      //     state.services.forEach((service) =>
+      //       service.id === action.payload.comment.service_id
+      //         ? (service.Comments = [...service.Comments, action.payload.comment])
+      //         : service,
+      //     );
+      //   } else {
+      //     state.services.forEach((service) =>
+      //       service.id === action.payload.comment.service_id
+      //         ? (service.Comments = [...service.Comments, action.payload.comment])
+      //         : service,
+      //     );
+      //     state.services.forEach((service) =>
+      //       service.id === action.payload.comment.service_id
+      //         ? (service.Rates = [...service.Rates, action.payload.rate])
+      //         : service,
+      //     );
+      //   }
+      // })
+      // .addCase(addComments.rejected, (state, action) => {
+      //   state.error = action.error.message ? action.error.message : null;
+      // })
+      // .addCase(addComments.pending, (state) => {
+      //   state.loading = true;
+      // })
+      // .addCase(deleteComment.fulfilled, (state, action) => {
+      //   state.services = state.services.map((service) =>
+      //     service.id === action.payload.service_id
+      //       ? {
+      //           ...service,
+      //           Comments: service.Comments.filter(
+      //             (comment) => comment.id !== action.payload.comment_id,
+      //           ),
+      //         }
+      //       : service,
+      //   );
      
-      })
+      // })
     
   },
 });

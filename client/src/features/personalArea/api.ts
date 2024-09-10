@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 /* eslint-disable import/prefer-default-export */
 
-import type { Service } from '../LogReg/type';
+import { DoctorId } from '../doctor/types/types';
+import type { Service } from '../logreg/type';
+import { ServiceId } from '../service/types/type';
 
 export const fetchUpdatePhoto = async (
   obj: Service,

@@ -1,9 +1,9 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
 import './style/modal.css';
-import { RootState, useAppDispatch } from '../../redux/store';
-import { addDoctor, changeDoctor} from './doctorSlice';
-import { useSelector } from 'react-redux';
-import { DoctorCard} from './types/type';
+import { useAppDispatch } from '../../redux/store';
+import {  changeDoctor} from './doctorSlice';
+
+import { DoctorCard} from './types/types';
 
 function ChangeDoctorForm({
   doctor,
@@ -22,16 +22,16 @@ function ChangeDoctorForm({
 
   1;
   const dispatch = useAppDispatch();
-  const onHandleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
-    e.preventDefault();
-    dispatch(addDoctor({ id: doctor.id,  title, img,  about}));
-    setTitle("");
+  // const onHandleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+  //   e.preventDefault();
+  //   dispatch(addDoctor({ id: doctor.id,  title, img,  about}));
+  //   setTitle("");
 
-		setAbout("");
-    setImg("");
+	// 	setAbout("");
+  //   setImg("");
 
   
-  };
+  // };
   const onHandleChange = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     dispatch(changeDoctor({ id: doctor.id,  title, img, about }));
@@ -69,7 +69,7 @@ function ChangeDoctorForm({
             className="biginput"
             value={about}
             onChange={(e) => setAbout(e.target.value)}
-            type="text"
+          
           />
         </label>
      

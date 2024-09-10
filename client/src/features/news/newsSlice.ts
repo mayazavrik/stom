@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import type { PostsState } from './types/state';
+import type { PostsState } from './types/State';
 import * as api from './api/api';
 import { fetchPostAdd } from '../admin/api/api';
 import type { Post } from './types/Post';

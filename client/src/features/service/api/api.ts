@@ -1,7 +1,7 @@
 import type {
 ServiceId,
   Sale,
-  SaleId,
+  
   ServiceCard,
 } from '../types/type';
 

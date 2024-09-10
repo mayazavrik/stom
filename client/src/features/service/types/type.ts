@@ -1,16 +1,17 @@
+import { Service } from "../../logreg/type";
 
 export type ServiceCard = {
   id: number;
   title: string;
-  
+ 
   text: string;
-  price:number;
+  price: number;
  
 };
 export type ServiceId = ServiceCard['id'];
 
 export type ServicesState = {
-  services: ServiceCard[];
+  services: Service[];
   error: string | null;
   loading: boolean;
   

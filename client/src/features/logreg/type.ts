@@ -7,11 +7,11 @@ export type User = {
 };
 
 export type Service = {
-  id?: number;
-  title?: string;
+  id: number;
+  title: string;
  
-  text?: string;
-  price?: number;
+  text: string;
+  price: number;
  
   
 };
@@ -20,4 +20,5 @@ export type AuthState = {
   user: User | undefined;
   // service: Service | undefined;
   error: string | null;
+  service: undefined;
 };

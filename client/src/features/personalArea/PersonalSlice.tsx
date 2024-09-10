@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import type { AuthState, Service } from '../LogReg/type';
+import type { AuthState, Service } from '../logreg/type';
 import { fetchUpdatePhoto } from './api';
 
 export const updatePhoto = createAsyncThunk('update/photo', (obj: Service) =>

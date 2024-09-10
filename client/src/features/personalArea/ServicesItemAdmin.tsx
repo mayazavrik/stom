@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import type { Service } from '../LogReg/type';
+import React from 'react';
+import type { Service } from '../logreg/type';
 import { useAppDispatch } from '../../redux/store';
-import { deleteOneService, upStatusService } from '../service/servicesSlice';
+import { deleteOneService,  } from '../service/servicesSlice';
 
 function ServicesItemAdmin({ servic }: { servic: Service }): JSX.Element {
   const dispatch = useAppDispatch();

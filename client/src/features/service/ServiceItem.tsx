@@ -1,18 +1,19 @@
-import React, { memo, useState } from 'react';
+import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import type { ServiceCard } from './types/type';
+// import type { ServiceCard } from './types/type';
 import './style/style.css';
 import ChangeServiceForm from './ChangeServiceForm'
-import type { RootState } from '../../redux/store';
+import type { AppDispatch, RootState } from '../../redux/store';
 import { deleteOneService } from './servicesSlice';
+import { Service } from '../logreg/type';
 
 
-export default function ServiceItem({ service }: { service: ServiceCard }): JSX.Element {
+export default function ServiceItem({ service }: { service: Service }): JSX.Element {
   const [modalActive, setModalActive] = useState(false);
   const user = useSelector((store: RootState) => store.auth.user);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>(); 
   const onHandleRemove = (): void => {
     dispatch(deleteOneService(service.id));
   };

@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 import { useAppDispatch } from "../../redux/store";
 import { addDoctor } from "./doctorSlice";
-import type { DoctorCard } from "./types/type";
+// import type { DoctorCard } from "./types/types";
 import "./style/style.css";
 
-export default function AddDoctorForm({ doctor }: { doctor: DoctorCard }): JSX.Element {
+export default function AddDoctorForm(): JSX.Element {
 	const [title, setTitle] = useState("");
 	const [about, setAbout] = useState("");
-	const [text, setText] = useState("");
+
   const [img, setImg] = useState("");
 
 	const dispatch = useAppDispatch();
 
 	const onHandleAdd = (e: React.FormEvent<HTMLFormElement>): void => {
 		e.preventDefault();
-		dispatch(addDoctor({ id: 1, title,img, about, text }));
+		dispatch(addDoctor({ id: 1, title,img, about }));
 		setTitle("");
-		setText("");
+	
 		setAbout("");
     setImg("");
 	};

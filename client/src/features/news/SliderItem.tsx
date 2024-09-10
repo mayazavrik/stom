@@ -1,19 +1,20 @@
 import React, { memo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import type { Service, ServiceId } from '../service/types';
+// import type { ServiceCard, ServiceId } from '../service/types/type';
 import './style/slider.css';
 import { deleteOneService } from '../service/servicesSlice';
 import ChangeServiceForm from '../service/ChangeServiceForm';
-import { RootState } from '../../redux/store';
+import { AppDispatch, RootState } from '../../redux/store';
+import { Service } from '../logreg/type';
 
-function SliderItem({ service }: { service: Service }): JSX.Element {
+function SliderItem({ service }: { service: Service}): JSX.Element {
   const [modalActive, setModalActive] = useState(false);
   const user = useSelector((store: RootState) => store.auth.user);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>(); 
 
-  const onHandleRemove = (value: ServiceId): void => {
-    dispatch(deleteOneService(value));
+  const onHandleRemove = (): void => {
+    dispatch(deleteOneService(service.id));
   };
 
   return (

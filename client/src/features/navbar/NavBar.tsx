@@ -54,22 +54,22 @@ function NavBar(): JSX.Element {
             }
           >
             <li className="nav-item">
-              <NavLink onClick={scrollToTop}  className={style.mobile_btn} className="navlink" to="/">
+              <NavLink onClick={scrollToTop}  className="navlink" to="/">
                 На главную
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink onClick={scrollToTop}  className={style.mobile_btn} className="navlink" to="/services">
+              <NavLink onClick={scrollToTop}   className="navlink" to="/services">
                 Услуги
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink onClick={scrollToTop}  className={style.mobile_btn} className="navlink" to="/doctors">
+              <NavLink onClick={scrollToTop}   className="navlink" to="/doctors">
                 Врачи
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink onClick={scrollToFooter} className={style.mobile_btn} className="navlink" to="#footer">
+              <NavLink onClick={scrollToFooter}  className="navlink" to="#footer">
                 Контакты
               </NavLink>
             </li>

@@ -1,9 +1,9 @@
 import type {
 
-  Doctor,
+
   DoctorId,
   DoctorCard,
-  } from '../types/type';
+  } from '../types/types';
   
   
 

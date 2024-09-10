@@ -1,15 +1,16 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
 import './style/modal.css';
-import { RootState, useAppDispatch } from '../../redux/store';
-import { addService, changeService } from './servicesSlice';
-import { useSelector } from 'react-redux';
-import { ServiceCard} from './types/type';
+import {  useAppDispatch } from '../../redux/store';
+import {  changeService } from './servicesSlice';
+// import { useSelector } from 'react-redux';
+// import { ServiceCard} from './types/type';
+import { Service } from '../logreg/type';
 
 function ChangeServiceForm({
   service,
   setModalActive,
 }: {
-    service: ServiceCard;
+    service: Service;
   setModalActive: Dispatch<SetStateAction<boolean>>;
 }): JSX.Element {
 
@@ -20,15 +21,15 @@ function ChangeServiceForm({
 
   1;
   const dispatch = useAppDispatch();
-  const onHandleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
-    e.preventDefault();
-    dispatch(addService({ id: service.id,  title,  text, price }));
+  // const onHandleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+  //   e.preventDefault();
+  //   dispatch(addService({ id: service.id,  title,  text, price }));
 
-    setText('');
-    setTitle('');
-    setPrice(0);
+  //   setText('');
+  //   setTitle('');
+  //   setPrice(0);
     
-  };
+  // };
   const onHandleChange = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     dispatch(changeService({ id: service.id, title, text , price, }));
@@ -57,7 +58,7 @@ function ChangeServiceForm({
             className="biginput"
             value={text}
             onChange={(e) => setText(e.target.value)}
-            type="text"
+            
           />
         </label>
         <label className="form__label">
@@ -67,7 +68,7 @@ function ChangeServiceForm({
             value={price}
             name="text"
             type="text"
-            onChange={(e) => setPrice(e.target.value)}
+            onChange={(e) => setPrice(Number(e.target.value))}
           />
         </label>
         <label className="form__label">
@@ -77,7 +78,7 @@ function ChangeServiceForm({
             value={price}
             name="text"
             type="text"
-            onChange={(e) => setPrice(e.target.value)}
+            onChange={(e) => setPrice(e.target.value ? Number(e.target.value) : 0)}
           />
         </label>
         <button className="btn" type="submit">

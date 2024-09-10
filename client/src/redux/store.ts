@@ -5,7 +5,7 @@ import AuthSlice from "../features/logreg/AuthSlice";
 import servicesSlice from "../features/service/servicesSlice";
 import newsSlice from "../features/news/newsSlice";
 
-import uslugaPriceSlice from "../features/doctor/uslugaPriceSlice";
+// import uslugaPriceSlice from "../features/doctor/uslugaPriceSlice";
 import salesSlice from "../features/sales/salesSlice";
 import PersonalSlice from "../features/personalArea/PersonalSlice";
 import doctorSlice from "../features/doctor/doctorSlice";
@@ -17,7 +17,7 @@ const store = configureStore({
 		auth: AuthSlice,
 
 		doctorSlice: doctorSlice,
-		prices: uslugaPriceSlice,
+		// prices: uslugaPriceSlice,
 		sales: salesSlice,
 		adminArea: PersonalSlice,
 	},
