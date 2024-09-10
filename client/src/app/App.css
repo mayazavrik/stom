@@ -1,0 +1,76 @@
+.wrapper{
+	display: flex;
+	flex-direction: column;
+height: 100%;
+	width: 100%;
+}
+#huge{
+	
+	display: flex;
+	/* width: 100%; */
+	align-items: center; 
+	justify-content: center;
+	/* background-color: rgb(0, 0, 0); */
+	flex-direction: column;
+
+	
+} 
+
+body{
+	display: flex;
+	flex-direction: column;
+  background-color: #8b837c;
+}
+
+
+.font-link {
+	
+
+	font-family: 'Orbitron';
+
+text-align: center;
+
+
+  }
+
+  .error-window {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+  }
+  
+  .error-title {
+	margin: 50px;
+	font-size: 50px;
+	color: #ff0000;
+  }
+  
+  .error-message {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  }
+  
+  #error-video {
+width: 100%;
+  }
+input :placeholder {
+    color: black;
+    font-weight: bolder;
+  }
+
+  .backBtn {
+	width: 300px;
+	font-size: large;
+	color: white;
+  }
+  .backBtn:hover {
+	width: 300px;
+	font-size: large;
+	color: white;
+	
+	cursor: pointer;
+  }
+  

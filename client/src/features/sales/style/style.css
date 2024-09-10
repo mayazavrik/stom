@@ -1,0 +1,21 @@
+.sale-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(239, 189, 114);;
+  border-radius: 20px;
+  width: 80%;
+
+}
+.sales__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.saleimg {
+  width: 90%;
+}
