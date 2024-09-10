@@ -11,7 +11,7 @@ const salesApiRouter = require('./api/sales.api.routes');
 const uslugasPricesApiRouter = require('./api/uslugasPrices.api.routes');
 const authPersonRoute = require('./api/person.spi');
 
-const authOrder = require('./api/order.api');
+// const authOrder = require('./api/order.api');
 
 router.use('/api/getUser', getUserRouter);
 
@@ -22,8 +22,8 @@ router.use('/api/doctors', doctorsApiRouter);
 router.use('/api/auth', authApiRouter);
 // router.use('/api/uslugas', uslugasApiRouter);
 
-router.use('/api/uslugasPrice', uslugasPricesApiRouter);
+// router.use('/api/uslugasPrice', uslugasPricesApiRouter);
 router.use('/api/service', authPersonRoute);
 
-router.use('/api/order', authOrder);
+// router.use('/api/order', authOrder);
 module.exports = router;
