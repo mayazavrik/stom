@@ -42,6 +42,7 @@
 
 // require('@babel/register');
 require("dotenv").config();
+const path = require('path');
 const express = require("express");
 const serverConfig = require("./config/serverConfig");
 const serverConfigServer = require("./config/serverConfigServer");
